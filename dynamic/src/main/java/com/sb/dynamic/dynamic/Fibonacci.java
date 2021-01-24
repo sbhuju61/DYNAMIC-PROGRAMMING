@@ -1,31 +1,61 @@
 package com.sb.dynamic.dynamic;
 
+import java.util.HashMap;
+
 /**
  * Hello world!
  *
  */
 public class Fibonacci 
 {
-	public int fibonacci(int n){
+	public Long fibonacciRecursive(Long n){
         if (n <= 0){
-            return 0;
+            return 0l;
         }
 
         if ( n == 1){
-            return 1;
+            return 1l;
         }
 
-        return fibonacci(n-1) + fibonacci(n-2);
+        return fibonacciRecursive(n-1) + fibonacciRecursive(n-2);
         
     }
+	
+	HashMap<Long,Long>  hm = new HashMap<Long,Long>();
+	
+	public Long fibonacciDynamic(Long n){
+        
+		if (hm.containsKey(n)) {
+        	return hm.get(n);
+        }
+		
+		if (n == 0){
+            return 0l;
+        }
+
+        if ( n == 1){
+            return 1l;
+        }
+        
+        
+        
+        Long nthValue = fibonacciDynamic(n-1) + fibonacciDynamic(n-2);
+        
+        hm.put(n, nthValue);
+        
+        return nthValue;
+        
+    }
+	
 	
     public static void main( String[] args )
     {
     	Fibonacci obj = new  Fibonacci();
+    
+    	Long number = 50l;
     	
-    	int number = 25;
-    	
-    	int fibonacciAnswer = obj.fibonacci(number);
+    	// Long fibonacciAnswer = obj.fibonacciRecursive(number);
+    	Long fibonacciAnswer = obj.fibonacciDynamic(number);
     	
     	StringBuilder ansString = new StringBuilder();
     	
