@@ -64,7 +64,7 @@ public class GridTraveler {
 		// y is vertical
 		Long y = 18l;
 		
-		// x is horizonal
+		// x is horizontal
 		Long x = 18l;
 		
 		Long gridTravelerAnswer = obj.gridTravelerDynamic(y, x);
