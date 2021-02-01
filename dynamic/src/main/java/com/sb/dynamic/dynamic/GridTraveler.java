@@ -4,11 +4,7 @@ import java.util.HashMap;
 
 public class GridTraveler {
 	
-	class MyKey {
-	    int firstIndex;
-	    int secondIndex;
-	    // important: override hashCode() and equals()
-	}
+	
 	
 	public Long gridTravelerRecursive( Long y, Long x) {
 		if (x == 0 || y  == 0) {
