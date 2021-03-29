@@ -5,18 +5,18 @@ import java.util.HashMap;
 
 public class CanSum {
 	
-	public boolean canSumRecursive(int targetSum, int [] numArray) {
+	public Boolean canSumRecursive(Integer targetSum, Integer [] numArray) {
 		
 		if (targetSum == 0) return true;
 		if (targetSum < 0) return false;
 		
 		if (numArray.length == 0) return false;
 		
-		for (int num : numArray) {
+		for (Integer num : numArray) {
 			
-			final int remainder = targetSum - num;
+			final Integer remainder = targetSum - num;
 			
-			boolean canSum = canSumRecursive(remainder,numArray);
+			Boolean canSum = canSumRecursive(remainder,numArray);
 			
 			if (canSum == true) return true;
 			
@@ -30,7 +30,7 @@ public class CanSum {
 	
 	HashMap<Integer,Boolean>  hm = new HashMap<Integer,Boolean>();
 	
-public boolean canSumDynamic(int targetSum, int [] numArray){
+public Boolean canSumDynamic(Integer targetSum, Integer [] numArray){
         
 		
 		
@@ -41,11 +41,11 @@ public boolean canSumDynamic(int targetSum, int [] numArray){
 		
 		if (numArray.length == 0) return false;
 		
-		for (int num : numArray) {
+		for (Integer num : numArray) {
 			
-			final int remainder = targetSum - num;
+			final Integer remainder = targetSum - num;
 			
-			boolean canSum = canSumDynamic(remainder,numArray);
+			Boolean canSum = canSumDynamic(remainder,numArray);
 			
 			if (canSum == true) {
 				hm.put(targetSum, true);
@@ -61,12 +61,12 @@ public boolean canSumDynamic(int targetSum, int [] numArray){
 	
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		CanSum obj = new CanSum();
-		int targetSum = 300;
-		int [] numArray = {7,14};
 		
-		boolean canSumAnswer = obj.canSumDynamic(targetSum, numArray);
+		CanSum obj = new CanSum();
+		Integer targetSum = 300;
+		Integer [] numArray = {7,14};
+		
+		Boolean canSumAnswer = obj.canSumDynamic(targetSum, numArray);
 		
 		StringBuilder ansString = new StringBuilder();
     	
